@@ -8,6 +8,9 @@ use Laravel\Socialite\Two\User;
 
 class DiscordProvider extends AbstractProvider implements ProviderInterface
 {
+
+    protected $prompt = 'none';
+
     /**
      * {@inheritDoc}
      */
@@ -87,6 +90,7 @@ class DiscordProvider extends AbstractProvider implements ProviderInterface
             'code' => $code,
             'grant_type' => 'authorization_code',
             'redirect_uri' => $this->redirectUrl,
+            'prompt' => $this->prompt
         ];
     }
 }
